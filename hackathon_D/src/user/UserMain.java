@@ -1,6 +1,7 @@
 package user;
 
 import java.io.IOException;
+import user.model.PowerUsage;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -10,7 +11,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+<<<<<<< HEAD
 import user.model.PowerUsage;
+=======
+import user.model.*;
+>>>>>>> branch 'master' of https://github.com/stangrad/hackathon_D.git
 
 public class UserMain extends Application {
 

@@ -98,7 +98,7 @@ public class PowerUsage
 		this.powerAmount = powerAmount;
 	}
 	/**
-	 * Sets the value of price.
+	 * Sets the value of price..
 	 * @param price the price to set
 	 */
 	public void setPrice(double price)
@@ -109,7 +109,7 @@ public class PowerUsage
 	@Override
 	public String toString()
 	{
-		return "userId: " + this.getUserid() + " date: " + this.getDate() + " hour: " + this.getHour() + " powerAmount: " + this.getPowerAmount() + " price: " + this.getPowerAmount();
+		return "userId: " + this.getUserid() + " date: " + this.getDate() + " hour: " + this.getHour() + " powerAmount: " + this.getPowerAmount() + " price: " + this.getPrice();
 	}
 	
 }
