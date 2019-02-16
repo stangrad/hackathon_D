@@ -19,7 +19,7 @@ public class UserInfomation {
 	Scanner kb = new Scanner(System.in);
 	String dataPath = "res\\userData.txt";
 	public UserInfomation() throws IOException {
-		loadData(dataPath);
+		//loadData(dataPath);
 		if(loing()) {
 			System.out.println("Login Success");
 			System.out.println("Welcome to Initial Power.");
@@ -28,18 +28,38 @@ public class UserInfomation {
 			System.out.println("If you are not our customer, welcome to join Initial Power for createing your income.");
 		}
 	}
-	private boolean loing() {
-		// TODO Auto-generated method stub
-		return false;
+	private boolean loing() throws IOException {
+		//get userID;
+		System.out.println("Typing userID:");
+		String id = kb.nextLine();
+		while( id.isEmpty() || !id.matches("[0-9] {4}")) {
+			System.out.println("Please typing 4 digits: ");
+			id = kb.nextLine();
+		}
+		if(searchingUser(id)) {
+			return true;
+		}else {
+			return false;
+		}
 	}
-	private void loadData(String filePath) throws IOException {
+	
+	private boolean searchingUser(String id) throws IOException {
 		String line ="";
-		BufferedReader bfReader = new BufferedReader(new FileReader(filePath));
+		BufferedReader bfReader = new BufferedReader(new FileReader(dataPath));
 		line = bfReader.readLine();
 		while(line != null) {
-			
-			
+			String field [] = line.split(",");
+			if(field[0].equals(id)) {
+				userList.add(new UserList(field[0],field[1],field[2],field[3],field[4],field[5], field[6], field[7], field[8]));
+			}
+		}
+		if(!userList.isEmpty()) {
+			return true;
+		}else {
+			return false;
 		}
 		
+			
 	}
+		
 }

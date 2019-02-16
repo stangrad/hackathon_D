@@ -10,27 +10,35 @@ public class UserList {
 	private String first_name;
 	private String last_name;
 	private String email;
-	private String phonNumber;
+	private String phoneNumber;
+	private String address;
 	private String creditcard;
 	private String bankaccount;
 	private String password;
 	
 	public UserList() {
-		initData(); 
+		id="";
+		first_name="";
+		last_name="";
+		email="";
+		phoneNumber="";
+		setAddress("");
+		creditcard="";
+		bankaccount="";
+		password="";
 	}
-	private void initData() {
-		// TODO Auto-generated method stub
-		String line ="6373,Cornelia,Mowles,cmowles4@spotify.com,969-462-0098,180 Scofield Court,4026701292266090,612-450-6848,hhpag9kzXT";
-		String [] field = line.split(",");
-		setId(field[0]);
-		setFirst_name(field[1]);
-		setLast_name(field[2]);
-		setEmail(field[3]);
-		setPhonNumber(field[4]);
-		setCreditcard(field[5]);
-		setBankaccount(field[6]);
-		setPassword(field[7]);
+	public UserList(String id, String first_name, String last_name, String email, String phonNumber, String address, 
+			String creditcard, String bankaccount, String password) {
+		setId(id);
+		setFirst_name(first_name);
+		setLast_name(last_name);
+		setEmail(email);
+		setPhonNumber(phoneNumber);
+		setCreditcard(address);
+		setBankaccount(creditcard);
+		setPassword(password);
 	}
+
 	public String getId() {
 		return id;
 	}
@@ -56,10 +64,10 @@ public class UserList {
 		this.email = email;
 	}
 	public String getPhonNumber() {
-		return phonNumber;
+		return phoneNumber;
 	}
 	public void setPhonNumber(String phonNumber) {
-		this.phonNumber = phonNumber;
+		this.phoneNumber = phonNumber;
 	}
 	public String getCreditcard() {
 		return creditcard;
@@ -88,6 +96,12 @@ public class UserList {
 						getId(), getFirst_name(),getLast_name(), getEmail(),getPhonNumber(),
 						getCreditcard(),getBankaccount(),getPassword());
 				
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	
 }
