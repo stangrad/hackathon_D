@@ -109,7 +109,7 @@ public class PowerUsage
 	@Override
 	public String toString()
 	{
-		return "userId: " + this.getUserid() + " date: " + this.getDate() + " hour: " + this.getHour() + " powerAmount: " + this.getPowerAmount() + " price: " + this.getPowerAmount();
+		return "userId: " + this.getUserid() + " date: " + this.getDate() + " hour: " + this.getHour() + " powerAmount: " + this.getPowerAmount() + " price: " + this.getPrice();
 	}
 	
 }
