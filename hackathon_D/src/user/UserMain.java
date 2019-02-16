@@ -3,6 +3,8 @@ package user;
 import java.io.IOException;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -13,6 +15,8 @@ public class UserMain extends Application {
 
 	private Stage primaryStage;
 	private BorderPane rootLayout;
+	
+	public ObservableList<PowerUseage> powerUseage = FXCollections.observableArrayList();
 
 	@Override
 	public void start(Stage primaryStage) {
