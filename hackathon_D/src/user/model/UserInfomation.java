@@ -36,30 +36,40 @@ public class UserInfomation {
 			System.out.println("Please typing 4 digits: ");
 			id = kb.nextLine();
 		}
-		if(searchingUser(id)) {
+		System.out.println("Please typing pw, 6 digits:");
+		String pw = kb.nextLine();
+		while(!pw.matches("[a-zA-Z0-9]{6}")) {
+			System.out.println("Please type 6 digits(Caption, small letter, and number is mixed.");
+		}
+		
+		if(verifyUser(id, pw)) {
 			return true;
 		}else {
 			return false;
 		}
+	
 	}
 	
-	private boolean searchingUser(String id) throws IOException {
+	private boolean verifyUser(String id, String pw) throws IOException {
 		String line ="";
 		BufferedReader bfReader = new BufferedReader(new FileReader(dataPath));
 		line = bfReader.readLine();
 		while(line != null) {
 			String field [] = line.split(",");
 			if(field[0].equals(id)) {
-				userList.add(new UserList(field[0],field[1],field[2],field[3],field[4],field[5], field[6], field[7], field[8]));
+				if(field[8].equals(pw)) {
+					userList.add(new UserList(field[0],field[1],field[2],field[3],field[4],field[5], field[6], field[7], field[8]));
+				}
 			}
 		}
 		if(!userList.isEmpty()) {
+			bfReader.close();
 			return true;
 		}else {
+			bfReader.close();
 			return false;
 		}
 		
-			
+	
 	}
-		
 }
