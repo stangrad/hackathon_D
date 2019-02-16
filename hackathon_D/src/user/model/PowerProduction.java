@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-public class PowerCharging {
+public class PowerProduction {
 
 	String date;
 	String hour;
@@ -12,7 +12,7 @@ public class PowerCharging {
 	double price;
 	int userId;
 
-	public PowerCharging(String date, String hour, double powerAmount, double price, int userId) {
+	public PowerProduction(String date, String hour, double powerAmount, double price, int userId) {
 		this.date = date;
 		this.hour = hour;
 		this.powerAmount = powerAmount;
