@@ -22,7 +22,7 @@ public class PowerCharging {
 
 //	private void initData() throws FileNotFoundException {
 //		FileReader fr = new FileReader(new File("/res/chargingData.txt"));
-//		String line = "8878,01-Jan-2019,00:10:00,0, 3.50 ";
+//		String line = "8878,01-Jan-2019,00:10:00,0, 3.50 ";..
 //		String[] field = line.split(",");
 //		setUserId(Integer.parseInt(field[0]));
 //		setDate(field[1]);
