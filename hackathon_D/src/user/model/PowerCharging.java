@@ -1,4 +1,4 @@
-package user;
+package user.model;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,14 +7,14 @@ import java.io.FileReader;
 public class PowerCharging {
 
 	String date;
-	String hours;
+	String hour;
 	double powerAmount;
 	double price;
 	int userId;
 
-	public PowerCharging(String date, String hours, double powerAmount, double price, int userId) {
+	public PowerCharging(String date, String hour, double powerAmount, double price, int userId) {
 		this.date = date;
-		this.hours = hours;
+		this.hour = hour;
 		this.powerAmount = powerAmount;
 		this.price = price;
 		this.userId = userId;
@@ -22,11 +22,11 @@ public class PowerCharging {
 
 //	private void initData() throws FileNotFoundException {
 //		FileReader fr = new FileReader(new File("/res/chargingData.txt"));
-//		String line = "8878,01-Jan-2019,00:10:00,0, 3.50 ";..
+//		String line = "8878,01-Jan-2019,00:10:00,0, 3.50 ";..d
 //		String[] field = line.split(",");
 //		setUserId(Integer.parseInt(field[0]));
 //		setDate(field[1]);
-//		setHours(field[2]);
+//		sethour(field[2]);
 //		setPowerAmount(Double.parseDouble(field[3]));
 //		setPrice(Double.parseDouble(field[4]));
 //	}
@@ -40,12 +40,12 @@ public class PowerCharging {
 		this.date = date;
 	}
 
-	public String getHours() {
-		return hours;
+	public String gethour() {
+		return hour;
 	}
 
-	public void setHours(String hours) {
-		this.hours = hours;
+	public void sethour(String hour) {
+		this.hour = hour;
 	}
 
 	public double getPowerAmount() {
