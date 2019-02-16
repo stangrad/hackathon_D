@@ -7,14 +7,14 @@ import java.io.FileReader;
 public class PowerCharging {
 
 	String date;
-	String hours;
+	String hour;
 	double powerAmount;
 	double price;
 	int userId;
 
-	public PowerCharging(String date, String hours, double powerAmount, double price, int userId) {
+	public PowerCharging(String date, String hour, double powerAmount, double price, int userId) {
 		this.date = date;
-		this.hours = hours;
+		this.hour = hour;
 		this.powerAmount = powerAmount;
 		this.price = price;
 		this.userId = userId;
@@ -26,7 +26,7 @@ public class PowerCharging {
 //		String[] field = line.split(",");
 //		setUserId(Integer.parseInt(field[0]));
 //		setDate(field[1]);
-//		setHours(field[2]);
+//		sethour(field[2]);
 //		setPowerAmount(Double.parseDouble(field[3]));
 //		setPrice(Double.parseDouble(field[4]));
 //	}
@@ -40,12 +40,12 @@ public class PowerCharging {
 		this.date = date;
 	}
 
-	public String getHours() {
-		return hours;
+	public String gethour() {
+		return hour;
 	}
 
-	public void setHours(String hours) {
-		this.hours = hours;
+	public void sethour(String hour) {
+		this.hour = hour;
 	}
 
 	public double getPowerAmount() {
