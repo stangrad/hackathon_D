@@ -17,17 +17,16 @@ public class UserMain extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
-		this.primaryStage.setTitle("");
+		this.primaryStage.setTitle("Energy Market Manager");
 
 		initRootLayout();
-
-		showPersonOverview();
+		showMainScreen();
 	}
 
 	public void initRootLayout() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(UserMain.class.getResource("view/RootLayout.fxml"));
+			loader.setLocation(UserMain.class.getResource("view/UserRootLayout.fxml"));
 			rootLayout = (BorderPane) loader.load();
 
 			Scene scene = new Scene(rootLayout);
@@ -38,10 +37,10 @@ public class UserMain extends Application {
 		}
 	}
 
-	public void showPersonOverview() {
+	public void showMainScreen() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(UserMain.class.getResource("view/MainScreen.fxml"));
+			loader.setLocation(UserMain.class.getResource("view/UserMainScreen.fxml"));
 			AnchorPane personOverview = (AnchorPane) loader.load();
 
 			rootLayout.setCenter(personOverview);
