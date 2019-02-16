@@ -1,6 +1,7 @@
 package user;
 
 import java.io.IOException;
+import user.model.PowerUsage;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
