@@ -38,6 +38,7 @@ public class UserInfomation {
 		line = bfReader.readLine();
 		while(line != null) {
 			
+			
 		}
 		
 	}

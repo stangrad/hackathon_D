@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-public class PowerCharging {
+public class PowerProduction {
 
 	String date;
 	String hour;
@@ -12,7 +12,7 @@ public class PowerCharging {
 	double price;
 	int userId;
 
-	public PowerCharging(String date, String hour, double powerAmount, double price, int userId) {
+	public PowerProduction(String date, String hour, double powerAmount, double price, int userId) {
 		this.date = date;
 		this.hour = hour;
 		this.powerAmount = powerAmount;
@@ -20,7 +20,7 @@ public class PowerCharging {
 		this.userId = userId;
 	}
 
-//	private void initData() throws FileNotFoundException {
+//	private void initData() throws FileNotFoundException {..
 //		FileReader fr = new FileReader(new File("/res/chargingData.txt"));
 //		String line = "8878,01-Jan-2019,00:10:00,0, 3.50 ";..d
 //		String[] field = line.split(",");

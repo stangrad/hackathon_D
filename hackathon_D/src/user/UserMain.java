@@ -11,13 +11,14 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import user.model.*;
 
 public class UserMain extends Application {
 
 	private Stage primaryStage;
 	private BorderPane rootLayout;
 	
-	public ObservableList<PowerUseage> powerUseage = FXCollections.observableArrayList();
+	public ObservableList<PowerUsage> powerUseage = FXCollections.observableArrayList();
 
 	@Override
 	public void start(Stage primaryStage) {
