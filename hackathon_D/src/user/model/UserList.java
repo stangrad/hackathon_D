@@ -1,4 +1,4 @@
-	package user;
+	package user.model;
 /**
  * Class - deal with user information and functions.
  * @author Yunting Wang
