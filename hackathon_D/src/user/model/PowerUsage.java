@@ -98,7 +98,7 @@ public class PowerUsage
 		this.powerAmount = powerAmount;
 	}
 	/**
-	 * Sets the value of price.
+	 * Sets the value of price..
 	 * @param price the price to set
 	 */
 	public void setPrice(double price)
