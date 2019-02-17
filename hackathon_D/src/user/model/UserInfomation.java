@@ -53,6 +53,7 @@ public class UserInfomation {
 		return singleUser;		
 	}
 	/**
+	 * Method description - ttlCurrentProduction()
 	 * Calculate total current Production from database
 	 * @return double total_CurrentProduction
 	 */
