@@ -4,9 +4,13 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import javafx.fxml.FXML;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Label;
@@ -30,6 +34,8 @@ public class UserMainScreenController {
 	private TitledPane titledPane3;
 	@FXML
 	private LineChart<String, Number> lineChart;
+	@FXML
+	private BarChart<String, Number> barChart;
 	@FXML
 	private Label id;
 	@FXML
@@ -56,7 +62,7 @@ public class UserMainScreenController {
 			historicUsage = UserController.getHistoricUsage("8878");
 			for (Production p : historicProduction) {
 				seriesProduction.getData()
-						.add(new XYChart.Data<String, Number>(p.getDate(), (Number) p.getPowerAmount()));
+						.add(new XYChart.Data<String, Number>(p.getDate(), (Number) (p.getPowerAmount() * 100)));
 			}
 			for (PowerUsage u : historicUsage)
 			{
@@ -68,6 +74,22 @@ public class UserMainScreenController {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
+	}
+	
+	public void getBarChart() {
+		/*
+		barChart = new BarChart<>(new CategoryAxis(), new NumberAxis());
+
+	    final XYChart.Series<String, Number> series1 = new XYChart.Series<>();
+	    barChart.getData().addAll(series1);
+
+	    SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+	    Date date = new Date();
+	    for (int i = 0; i <= 10; i += 1) {
+	        date.setTime(date.getTime() + i * 11111);
+	        series1.getData().add(new XYChart.Data(dateFormat.format(date), Math.random() * 500));
+	    }
+	    */
 	}
 
 	// Do not touch below
