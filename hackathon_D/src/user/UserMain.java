@@ -1,8 +1,12 @@
 package user;
 
 import java.io.IOException;
+<<<<<<< HEAD
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+=======
+import user.model.PowerUsage;
+>>>>>>> branch 'master' of https://github.com/stangrad/hackathon_D
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -12,12 +16,20 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+<<<<<<< HEAD
 import user.model.PowerProduction;
 import user.model.PowerUsage;
 import user.model.Production;
 import user.model.UserInfomation;
 import user.model.UserList;
 import user.view.UserMainScreenController;
+=======
+<<<<<<< HEAD
+import user.model.PowerUsage;
+=======
+import user.model.*;
+>>>>>>> branch 'master' of https://github.com/stangrad/hackathon_D.git
+>>>>>>> branch 'master' of https://github.com/stangrad/hackathon_D
 
 public class UserMain extends Application {
 
@@ -80,7 +92,7 @@ public class UserMain extends Application {
 	}
 	
 	public void loadHistoricUsage() {
-//		ddd
+//		dddsss
 	}
 
 	public Stage getPrimaryStage() {

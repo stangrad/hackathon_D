@@ -1,18 +1,21 @@
 package user.model;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class PowerProduction {
 
+	int userId;
 	String date;
 	String hour;
 	double powerAmount;
 	double price;
-	int userId;
 
-	public PowerProduction(String date, String hour, double powerAmount, double price, int userId) {
+	public PowerProduction(int userId, String date, String hour, double powerAmount, double price) {
 		this.date = date;
 		this.hour = hour;
 		this.powerAmount = powerAmount;
@@ -20,17 +23,22 @@ public class PowerProduction {
 		this.userId = userId;
 	}
 
-//	private void initData() throws FileNotFoundException {..
-//		FileReader fr = new FileReader(new File("/res/chargingData.txt"));
-//		String line = "8878,01-Jan-2019,00:10:00,0, 3.50 ";..d
-//		String[] field = line.split(",");
-//		setUserId(Integer.parseInt(field[0]));
-//		setDate(field[1]);
-//		sethour(field[2]);
-//		setPowerAmount(Double.parseDouble(field[3]));
-//		setPrice(Double.parseDouble(field[4]));
-//	}
-	
+	public static ArrayList<PowerProduction> loadHistoricProduction(int userId) throws IOException {
+		ArrayList<PowerProduction> historicUsage = new ArrayList<>();
+		BufferedReader br = new BufferedReader(new FileReader("res/HistoricProduction.txt"));
+		String line = br.readLine();
+		line = br.readLine();
+		while (line != null) {
+			String[] column = line.split(",");
+			if (Integer.parseInt(column[0]) == userId)
+				historicUsage.add(new PowerProduction(Integer.parseInt(column[0]), column[1], column[2],
+						Double.parseDouble(column[3]), Double.parseDouble(column[4])));
+
+			line = br.readLine();
+		}
+		br.close();
+		return historicUsage;
+	}
 
 	public String getDate() {
 		return date;
