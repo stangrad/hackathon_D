@@ -22,9 +22,8 @@ public class UserInfomation {
 
 		loadData(dataPath);
 		//get the data of single user
-		String id="";
+		String id="6848";
 		singleUser(id);
-
 	}
 	
 	
@@ -40,21 +39,21 @@ public class UserInfomation {
 			userList.add(new UserList(field[0],field[1],field[2],field[3],field[4],field[5], field[6], Double.parseDouble(field[7]), Double.parseDouble(field[8])));
 			line = bfReader.readLine();
 		}
+		//printOut();
 	}
 
 	
-	private ArrayList<UserList> singleUser(String id) throws IOException{
+	private ArrayList<UserList> singleUser(String id){
 		ArrayList <UserList> singleUser = new ArrayList <>();
-		for(int i=0; i<=userList.size(); i++) {
-			if(id.equals(userList.get(i))){
-				singleUser.add(userList.get(i));
-				
-			}
-			
+		for(int i=0; i<userList.size(); i++) {
+			if(userList.get(i).getId().matches(id)){
+				singleUser.add(userList.get(i));				
+			}			
 		}
-		return singleUser;
-		
+		return singleUser;		
 	}
+	
+/*	
 	private void verifyUser(String id) throws IOException {
 		String line ="";
 		BufferedReader bfReader = new BufferedReader(new FileReader(dataPath));
@@ -71,7 +70,8 @@ public class UserInfomation {
 				}
 			}
 			line = bfReader.readLine();
-	}		
+	}
+	*/		
 
 
 	private void printOut() {
