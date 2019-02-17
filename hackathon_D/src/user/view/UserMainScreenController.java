@@ -1,5 +1,8 @@
 package user.view;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
@@ -7,12 +10,13 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Accordion;
+import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
 import user.UserMain;
 
 public class UserMainScreenController {
 
-	UserMain driver;
+	public UserMain driver;
 
 	@FXML
 	private Accordion accorPane;
@@ -30,6 +34,8 @@ public class UserMainScreenController {
 	private CategoryAxis xAxisLineChart;
 	@FXML
 	private CategoryAxis xAxisBarChart;
+	@FXML
+	private Label todayDate;
 	
 	XYChart.Series<String, Double> seriesLineChart = new XYChart.Series<>();
 	XYChart.Series<String, Double> seriesbarChart = new XYChart.Series<>();
@@ -40,37 +46,14 @@ public class UserMainScreenController {
 
 	public void initialize() {
 		accorPane.setExpandedPane(titledPane1);
+		//
 	}
-	
-	public void getLineChart() {
-	}
-	
-	public void getBarChart() {
-		
-	}
-
-	/*
-	public static ArrayList<PowerUsage> loadHistoricUsage(int userId) throws IOException
-    {
-        ArrayList<PowerUsage> historicUsage = new ArrayList<>();
-        BufferedReader br = new BufferedReader(new FileReader("res/HistoricUsage.txt"));
-        String line = br.readLine();
-        line = br.readLine();
-        while(line != null)
-        {
-            String[] column = line.split(",");
-            if (Integer.parseInt(column[0]) == userId)
-                historicUsage.add(new PowerUsage(Integer.parseInt(column[0]), column[1], column[2], Double.parseDouble(column[3]), Double.parseDouble(column[4])));
-
-            line = br.readLine();
-        }
-        br.close();
-        return historicUsage;
-    }
-    */
 	
 	public void setAppDriver(UserMain driver)
 	{
 		this.driver = driver;
+		SimpleDateFormat dateFormat  = new SimpleDateFormat("MMMM dd, YYYY");
+		Calendar now = Calendar.getInstance();
+		todayDate.setText(dateFormat.format(now.getTime()));
 	}
 }
