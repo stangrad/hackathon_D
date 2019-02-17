@@ -14,7 +14,7 @@ import java.util.Scanner;
  *
  */
 public class UserInfomation {
-	ArrayList<UserList> userList = new ArrayList<>();
+	ArrayList<User> userList = new ArrayList<>();
 	Scanner kb = new Scanner(System.in);
 	String dataPath = "res\\userData.txt";
 
@@ -36,15 +36,15 @@ public class UserInfomation {
 		line = bfReader.readLine();
 		while(line != null) {
 			String field [] = line.split(",");
-			userList.add(new UserList(field[0],field[1],field[2],field[3],field[4],field[5], field[6], Double.parseDouble(field[7]), Double.parseDouble(field[8])));
+			userList.add(new User(field[0],field[1],field[2],field[3],field[4],field[5], field[6], Double.parseDouble(field[7]), Double.parseDouble(field[8])));
 			line = bfReader.readLine();
 		}
 		//printOut();
 	}
 
 	
-	private ArrayList<UserList> singleUser(String id){
-		ArrayList <UserList> singleUser = new ArrayList <>();
+	private ArrayList<User> singleUser(String id){
+		ArrayList <User> singleUser = new ArrayList <>();
 		for(int i=0; i<userList.size(); i++) {
 			if(userList.get(i).getId().matches(id)){
 				singleUser.add(userList.get(i));				
@@ -59,7 +59,7 @@ public class UserInfomation {
 	 */
 	private double ttlCurrentProduction() {
 		double total_CurrentProduction=0.0;
-		for(UserList e: userList) {
+		for(User e: userList) {
 			total_CurrentProduction+=e.getCurrentProduction();
 		}
 		System.out.println(total_CurrentProduction);
@@ -69,7 +69,7 @@ public class UserInfomation {
 
 
 	private void printOut() {
-		for (UserList e : userList) {
+		for (User e : userList) {
 			System.out.println(e);
 
 		}
