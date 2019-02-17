@@ -13,6 +13,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
+import javafx.scene.shape.Rectangle;
 import user.UserMain;
 import user.model.PowerUsage;
 import user.model.Production;
@@ -40,6 +41,10 @@ public class UserMainScreenController {
 	private Label id;
 	@FXML
 	private Label todayDate;
+	@FXML
+	private Rectangle barUsage;
+	@FXML
+	private Rectangle barProduction;
 
 	// private CategoryAxis xAxis;
 	// private Axis<Double> yAxis;
@@ -85,9 +90,8 @@ public class UserMainScreenController {
 
 	public void getBarChart() {
 		Random rand = new Random();
+		/*
 		barChart.getData().clear();
-
-		// barChart = new BarChart<>(new CategoryAxis(), new NumberAxis());
 
 		barChart.setTitle("Realtime Monitor");
 
@@ -114,15 +118,26 @@ public class UserMainScreenController {
 
 		});
 		thread.start();
+		*/
+		Thread thread = new Thread(new Runnable() {
 
-		/*
-		 * barChart.getData().addAll(seriesUsage);
-		 * 
-		 * SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss"); Date date =
-		 * new Date(); for (int i = 0; i <= 10; i += 1) { date.setTime(date.getTime() +
-		 * i * 11111); seriesUsage.getData().add(new
-		 * XYChart.Data(dateFormat.format(date), Math.random() * 500)); }
-		 */
+			public void run() {
+				while (true) {
+					barChart.getData().clear();
+					barUsage.setHeight(0);
+					barUsage.setHeight(barUsage.getHeight() + rand.nextInt(100));
+					barProduction.setHeight(0);
+					barProduction.setHeight(barProduction.getHeight() + rand.nextInt(100));
+					try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+		});
+		thread.start();
 	}
 
 	// Do not touch below
