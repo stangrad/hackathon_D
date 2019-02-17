@@ -20,6 +20,7 @@ public class UserInfomation {
 	String dataPath = "res\\userData.txt";
 
 	public UserInfomation() throws IOException {
+<<<<<<< HEAD
 		// loadData(dataPath);
 		if (loing()) {
 			System.out.println("Login Success");
@@ -27,6 +28,15 @@ public class UserInfomation {
 		} else {
 			System.out.println("Sorry, id or password is incorrect. Please check it.");
 			System.out.println("If you are not our customer, welcome to join Initial Power for createing your income.");
+=======
+		//loadData(dataPath);
+		if(loing()) {
+			//System.out.println("Login Success");
+			//System.out.println("Welcome to Initial Power.");
+		}else{
+			//System.out.println("Sorry, id or password is incorrect. Please check it.");
+			//System.out.println("If you are not our customer, welcome to join Initial Power for createing your income.");
+>>>>>>> refs/remotes/origin/master
 		}
 	}
 
@@ -41,19 +51,36 @@ public class UserInfomation {
 	}
 
 	private boolean loing() throws IOException {
+<<<<<<< HEAD
 		// get userID;
 		System.out.println("Typing userID:");
+=======
+		//get userID;
+		//System.out.println("Typing userID:");
+>>>>>>> refs/remotes/origin/master
 		String id = kb.nextLine();
+<<<<<<< HEAD
 		while (id.isEmpty() || !(id.matches("[0-9]{4}"))) {
 			System.out.println("Please typing 4 digits: ");
+=======
+		while( id.isEmpty() || !(id.matches("[0-9]{4}"))) {
+			//System.out.println("Please typing 4 digits: ");
+>>>>>>> refs/remotes/origin/master
 			id = kb.nextLine();
 		}
-		System.out.println("Please typing pw, 6 digits:");
+		//System.out.println("Please typing pw, 6 digits:");
 		String pw = kb.nextLine();
+<<<<<<< HEAD
 		while (!pw.matches("[a-zA-Z0-9]{6}")) {
 			System.out.println("Please type 6 digits(Caption, small letter, and number is mixed.");
 		}
 		if (verifyUser(id, pw)) {
+=======
+		while(!pw.matches("[a-zA-Z0-9]{6}")) {
+			//System.out.println("Please type 6 digits(Caption, small letter, and number is mixed.");
+		}		
+		if(verifyUser(id, pw)) {
+>>>>>>> refs/remotes/origin/master
 			return true;
 		} else {
 			return false;
@@ -67,6 +94,7 @@ public class UserInfomation {
 		line = bfReader.readLine();
 		// data starting
 		line = bfReader.readLine();
+<<<<<<< HEAD
 		while (line != null) {
 			String field[] = line.split(",");
 			// System.out.printf("[TP_1]id=%s, pw=%s\n",id,pw);
@@ -76,6 +104,14 @@ public class UserInfomation {
 				if (field[8].equals(pw)) {
 					userList.add(new UserList(field[0], field[1], field[2], field[3], field[4], field[5], field[6],
 							field[7], field[8]));
+=======
+		while(line != null) {
+			String field [] = line.split(",");
+			if(field[0].equals(id)) {
+				
+				if(field[8].equals(pw)) {
+					userList.add(new UserList(field[0],field[1],field[2],field[3],field[4],field[5], field[6], field[7], field[8]));
+>>>>>>> refs/remotes/origin/master
 				}
 			}
 			line = bfReader.readLine();

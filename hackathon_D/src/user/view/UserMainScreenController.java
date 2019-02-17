@@ -42,7 +42,7 @@ public class UserMainScreenController {
 	}
 	
 	public void getLineChart() {
-		//
+		//fff
 	}
 	
 	public void getBarChart() {
