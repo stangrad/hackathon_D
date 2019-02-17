@@ -99,7 +99,7 @@
                               <Label text="Batter Status: " />
                               <Label text="Condition" GridPane.columnIndex="1" />
                               <Label prefHeight="18.0" prefWidth="138.0" text="Energy Market Price" GridPane.rowIndex="1" />
-                              <Label text="\$ 6.97" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="\$ 3.33" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                      </children></AnchorPane>

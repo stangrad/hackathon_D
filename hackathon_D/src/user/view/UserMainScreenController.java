@@ -4,13 +4,11 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
+import java.util.Random;
 
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Label;
@@ -18,11 +16,13 @@ import javafx.scene.control.TitledPane;
 import user.UserMain;
 import user.model.PowerUsage;
 import user.model.Production;
+import user.model.User;
 import user.model.UserController;
 
 public class UserMainScreenController {
 
 	public UserMain driver;
+	public User user;
 
 	@FXML
 	private Accordion accorPane;
@@ -48,6 +48,9 @@ public class UserMainScreenController {
 		accorPane.setExpandedPane(titledPane1);
 		id.setText(UserController.getUser("1530").getId());// Hard code
 		getLineChart();
+
+		instantiateUser();
+		getBarChart();
 	}
 
 	public void getLineChart() {
@@ -64,32 +67,62 @@ public class UserMainScreenController {
 				seriesProduction.getData()
 						.add(new XYChart.Data<String, Number>(p.getDate(), (Number) (p.getPowerAmount() * 100)));
 			}
-			for (PowerUsage u : historicUsage)
-			{
-				seriesUsage.getData().add(new XYChart.Data<String, Number>(u.getDate(), (Number) (u.getPowerAmount() * 1000)));
+			for (PowerUsage u : historicUsage) {
+				seriesUsage.getData()
+						.add(new XYChart.Data<String, Number>(u.getDate(), (Number) (u.getPowerAmount() * 1000)));
 			}
-//			seriesProduction.setName("History");
+			// seriesProduction.setName("History");
 			lineChart.getData().add(seriesProduction);
 			lineChart.getData().add(seriesUsage);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
 	}
-	
+
+	public void instantiateUser() {
+		this.user = new User();
+	}
+
 	public void getBarChart() {
+		Random rand = new Random();
+		barChart.getData().clear();
+
+		// barChart = new BarChart<>(new CategoryAxis(), new NumberAxis());
+
+		barChart.setTitle("Realtime Monitor");
+
+		Thread thread = new Thread(new Runnable() {
+
+			public void run() {
+				while (true) {
+					barChart.getData().clear();
+					final XYChart.Series<String, Number> seriesProduction = new XYChart.Series<>();
+					final XYChart.Series<String, Number> seriesUsage = new XYChart.Series<>();
+					seriesProduction.getData().add(new XYChart.Data<String, Number>("Production", rand.nextInt(50)));
+					seriesUsage.getData().add(new XYChart.Data<String, Number>("Usage", rand.nextInt(200)));
+
+					barChart.getData().add(seriesProduction);
+					barChart.getData().add(seriesUsage);
+					try {
+						Thread.sleep(4000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					System.out.println("loop done");
+				}
+			}
+
+		});
+		thread.start();
+
 		/*
-		barChart = new BarChart<>(new CategoryAxis(), new NumberAxis());
-
-	    final XYChart.Series<String, Number> series1 = new XYChart.Series<>();
-	    barChart.getData().addAll(series1);
-
-	    SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-	    Date date = new Date();
-	    for (int i = 0; i <= 10; i += 1) {
-	        date.setTime(date.getTime() + i * 11111);
-	        series1.getData().add(new XYChart.Data(dateFormat.format(date), Math.random() * 500));
-	    }
-	    */
+		 * barChart.getData().addAll(seriesUsage);
+		 * 
+		 * SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss"); Date date =
+		 * new Date(); for (int i = 0; i <= 10; i += 1) { date.setTime(date.getTime() +
+		 * i * 11111); seriesUsage.getData().add(new
+		 * XYChart.Data(dateFormat.format(date), Math.random() * 500)); }
+		 */
 	}
 
 	// Do not touch below
