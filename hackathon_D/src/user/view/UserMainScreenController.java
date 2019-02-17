@@ -76,7 +76,8 @@ public class UserMainScreenController {
 				seriesUsage.getData()
 						.add(new XYChart.Data<String, Number>(u.getDate(), (Number) (u.getPowerAmount() * 1000)));
 			}
-			// seriesProduction.setName("History");
+			seriesProduction.setName("Production");
+			seriesUsage.setName("Usage");
 			lineChart.getData().add(seriesProduction);
 			lineChart.getData().add(seriesUsage);
 		} catch (IOException e1) {
@@ -90,6 +91,7 @@ public class UserMainScreenController {
 
 	public void getBarChart() {
 		Random rand = new Random();
+
 		/*
 		barChart.getData().clear();
 
@@ -119,6 +121,7 @@ public class UserMainScreenController {
 		});
 		thread.start();
 		*/
+		
 		Thread thread = new Thread(new Runnable() {
 
 			public void run() {
