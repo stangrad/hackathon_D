@@ -52,26 +52,19 @@ public class UserInfomation {
 		}
 		return singleUser;		
 	}
-	
-/*	
-	private void verifyUser(String id) throws IOException {
-		String line ="";
-		BufferedReader bfReader = new BufferedReader(new FileReader(dataPath));
-		// header
-		line = bfReader.readLine();
-		// data starting
-		line = bfReader.readLine();
-
-		while(line != null) {
-			String field [] = line.split(",");
-			if(field[0].equals(id)) {
-					userList.add(new UserList(field[0],field[1],field[2],field[3],field[4],field[5], field[6], Double.parseDouble(field[7]), Double.parseDouble(field[8])));
-	
-				}
-			}
-			line = bfReader.readLine();
+	/**
+	 * Calculate total current Production from database
+	 * @return double total_CurrentProduction
+	 */
+	private double ttlCurrentProduction() {
+		double total_CurrentProduction=0.0;
+		for(UserList e: userList) {
+			total_CurrentProduction+=e.getCurrentProduction();
+		}
+		System.out.println(total_CurrentProduction);
+		return total_CurrentProduction;
+		
 	}
-	*/		
 
 
 	private void printOut() {
