@@ -5,32 +5,40 @@
  *
  */
 public class UserList {
-//id,first_name,last_name,email,phoneNumber,address,creditcard,bankaccount,password
+//id,first_name,last_name,email,phoneNumber,creditcard,bankaccount,currentUsage,currentProduction
 	private String id;
 	private String first_name;
 	private String last_name;
 	private String email;
-	private String phonNumber;
+	private String phoneNumber;
 	private String creditcard;
 	private String bankaccount;
-	private String password;
-	
+	private double currentUsage;
+	private double currentProduction;
 	public UserList() {
-		initData(); 
+		id="";
+		first_name="";
+		last_name="";
+		email="";
+		phoneNumber="";
+		creditcard="";
+		bankaccount="";
+		currentUsage=0.0;
+		currentProduction=0.0;
 	}
-	private void initData() {
-		// TODO Auto-generated method stub
-		String line ="6373,Cornelia,Mowles,cmowles4@spotify.com,969-462-0098,180 Scofield Court,4026701292266090,612-450-6848,hhpag9kzXT";
-		String [] field = line.split(",");
-		setId(field[0]);
-		setFirst_name(field[1]);
-		setLast_name(field[2]);
-		setEmail(field[3]);
-		setPhonNumber(field[4]);
-		setCreditcard(field[5]);
-		setBankaccount(field[6]);
-		setPassword(field[7]);
+	public UserList(String id, String first_name, String last_name, String email, String phonNumber, 
+			String creditcard, String bankaccount, double currentUsage, double currentProduction) {
+		setId(id);
+		setFirst_name(first_name);
+		setLast_name(last_name);
+		setEmail(email);
+		setPhonNumber(phoneNumber);
+		setBankaccount(creditcard);
+		setCurrentUsage(currentUsage);
+		setCurrentProduction(currentProduction);
+		
 	}
+
 	public String getId() {
 		return id;
 	}
@@ -56,10 +64,10 @@ public class UserList {
 		this.email = email;
 	}
 	public String getPhonNumber() {
-		return phonNumber;
+		return phoneNumber;
 	}
 	public void setPhonNumber(String phonNumber) {
-		this.phonNumber = phonNumber;
+		this.phoneNumber = phonNumber;
 	}
 	public String getCreditcard() {
 		return creditcard;
@@ -73,12 +81,33 @@ public class UserList {
 	public void setBankaccount(String bankaccount) {
 		this.bankaccount = bankaccount;
 	}
-	public String getPassword() {
-		return password;
+
+	/**
+	 * @return the phoneNumber
+	 */
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	/**
+	 * @param phoneNumber the phoneNumber to set
+	 */
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
+
+	public double getCurrentUsage() {
+		return currentUsage;
+	}
+	public void setCurrentUsage(double currentUsage) {
+		this.currentUsage = currentUsage;
+	}
+	public double getCurrentProduction() {
+		return currentProduction;
+	}
+	public void setCurrentProduction(double currentProduction) {
+		this.currentProduction = currentProduction;
+	}
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -86,8 +115,8 @@ public class UserList {
 	public String toString() {
 		return String.format("User Information: %s,%s,%s,%s,%s,%s,%s,%s,%s",
 						getId(), getFirst_name(),getLast_name(), getEmail(),getPhonNumber(),
-						getCreditcard(),getBankaccount(),getPassword());
+						getCreditcard(),getBankaccount(),getCurrentUsage(),getCurrentProduction());
 				
 	}
-	
+
 }

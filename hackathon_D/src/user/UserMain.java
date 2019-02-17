@@ -1,6 +1,11 @@
 package user;
 
 import java.io.IOException;
+<<<<<<< HEAD
+=======
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+>>>>>>> refs/remotes/origin/master
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -10,15 +15,34 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+<<<<<<< HEAD
 import user.model.PowerUsage;
+=======
+import user.view.UserMainScreenController;
+import user.model.*;
+>>>>>>> refs/remotes/origin/master
 
 public class UserMain extends Application {
 
 	private Stage primaryStage;
 	private BorderPane rootLayout;
+	private String dateStamp;
 	
+<<<<<<< HEAD
 	public ObservableList<PowerUsage> powerUseage = FXCollections.observableArrayList();
 //..
+=======
+	public ObservableList<PowerUsage> historicUseage = FXCollections.observableArrayList();
+	
+	public PowerProduction powerProduction;
+	public PowerUsage powerUsage;
+	public Production production;
+	public UserInfomation userInfomation;
+//	public UserList userList;
+	
+	public UserList me;
+	
+>>>>>>> refs/remotes/origin/master
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
@@ -47,11 +71,29 @@ public class UserMain extends Application {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(UserMain.class.getResource("view/UserMainScreen.fxml"));
 			AnchorPane personOverview = (AnchorPane) loader.load();
-
 			rootLayout.setCenter(personOverview);
+			UserMainScreenController controller = loader.getController();
+			controller.setAppDriver(this);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void setDateStamp() {
+		SimpleDateFormat format  = new SimpleDateFormat("MM dd, YYYY");
+		Calendar now = Calendar.getInstance();
+		this.dateStamp = format.format(now.getTime());
+	}
+	
+	public String getDatestamp() {
+		return dateStamp;
+	}
+	
+	public void loadHistoricUsage() {
+//		dddsss
+	}
+	
+	public void fetchMe() {
 	}
 
 	public Stage getPrimaryStage() {
