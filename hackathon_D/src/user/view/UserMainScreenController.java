@@ -34,7 +34,8 @@ public class UserMainScreenController {
 	XYChart.Series<String, Double> seriesLineChart = new XYChart.Series<>();
 	XYChart.Series<String, Double> seriesbarChart = new XYChart.Series<>();
 	
-	private ObservableList<String> energyLevelLineChart;
+	private ObservableList<String> energyLevelLineChartProduction;
+	private ObservableList<String> energyLevelLineChartUsage;
 	private ObservableList<String> energyLevelBarChart;
 
 	public void initialize() {
@@ -42,7 +43,6 @@ public class UserMainScreenController {
 	}
 	
 	public void getLineChart() {
-		//fff
 	}
 	
 	public void getBarChart() {
