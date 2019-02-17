@@ -28,7 +28,7 @@ public class PowerProduction {
 		BufferedReader br = new BufferedReader(new FileReader("res/HistoricProduction.txt"));
 		String line = br.readLine();
 		line = br.readLine();
-		while (line != null) {
+		while (line != null) { //
 			String[] column = line.split(",");
 			if (Integer.parseInt(column[0]) == userId)
 				historicProduction.add(new PowerProduction(Integer.parseInt(column[0]), column[1], column[2],
