@@ -24,20 +24,20 @@ public class PowerProduction {
 	}
 
 	public static ArrayList<PowerProduction> loadHistoricProduction(int userId) throws IOException {
-		ArrayList<PowerProduction> historicUsage = new ArrayList<>();
+		ArrayList<PowerProduction> historicProduction = new ArrayList<>();
 		BufferedReader br = new BufferedReader(new FileReader("res/HistoricProduction.txt"));
 		String line = br.readLine();
 		line = br.readLine();
 		while (line != null) {
 			String[] column = line.split(",");
 			if (Integer.parseInt(column[0]) == userId)
-				historicUsage.add(new PowerProduction(Integer.parseInt(column[0]), column[1], column[2],
+				historicProduction.add(new PowerProduction(Integer.parseInt(column[0]), column[1], column[2],
 						Double.parseDouble(column[3]), Double.parseDouble(column[4])));
 
 			line = br.readLine();
 		}
 		br.close();
-		return historicUsage;
+		return historicProduction;
 	}
 
 	public String getDate() {
