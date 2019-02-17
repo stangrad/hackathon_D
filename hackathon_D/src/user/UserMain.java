@@ -1,29 +1,24 @@
 package user;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import user.model.PowerUsage;
+import user.model.Production;
+import user.model.User;
+import user.model.UserController;
 import user.view.UserMainScreenController;
-import user.model.*;
 
 public class UserMain extends Application {
 
 	private Stage primaryStage;
 	private BorderPane rootLayout;
-
-	public ObservableList<PowerUsage> powerUseage = FXCollections.observableArrayList();
-	public ObservableList<PowerUsage> historicUseage = FXCollections.observableArrayList();
-
-	public PowerProduction powerProduction;
-	public PowerUsage powerUsage;
-	public UserInfomation userInfomation;
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -34,6 +29,7 @@ public class UserMain extends Application {
 		showMainScreen();
 	}
 
+	//UI Setting below
 	public void initRootLayout() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -47,7 +43,6 @@ public class UserMain extends Application {
 			e.printStackTrace();
 		}
 	}
-
 	public void showMainScreen() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -61,15 +56,10 @@ public class UserMain extends Application {
 		}
 	}
 
-	// Methods
-	public void fetchMe() {
-	}
-
 	// Do not touch below
 	public Stage getPrimaryStage() {
 		return primaryStage;
 	}
-
 	public static void main(String[] args) {
 		launch(args);
 	}

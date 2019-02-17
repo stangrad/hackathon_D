@@ -10,16 +10,16 @@ public class UserController
 
 	private static ArrayList<User> userList = new ArrayList<>();
 	//Scanner kb = new Scanner(System.in);
-	private String userDataPath = "res/userData.txt";
-	private String hisProdDataPath = "res/HistoricProduction.txt";
-	private String hisUsagDataPath = "res/HistoricUsage.txt";
+	private static String userDataPath = "res/userData.txt";
+	private static String hisProdDataPath = "res/HistoricProduction.txt";
+	private static String hisUsagDataPath = "res/HistoricUsage.txt";
 
 	public UserController() throws IOException {
 		loadUserData();
 	}
 	
 	
-	private void loadUserData() throws IOException {
+	private static void loadUserData() throws IOException {
 		String line ="";
 		BufferedReader bfReader = new BufferedReader(new FileReader(userDataPath));
 		//header
@@ -36,14 +36,24 @@ public class UserController
 	
 	public static ArrayList<User> getAllUsers()
 	{
+		try {
+			loadUserData();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return userList;
 	}
 	
 	public static User getUser(String userId)
 	{
+		try {
+			loadUserData();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		User singleUser = null;
 		for(int i=0; i<userList.size(); i++) {
-			if(userList.get(i).getId().matches(userId)){
+			if(userList.get(i).getId().equals(userId)){
 				singleUser = userList.get(i);				
 			}			
 		}
@@ -54,7 +64,7 @@ public class UserController
 	 * Calculate total current Production from database
 	 * @return double total_CurrentProduction
 	 */
-	public double getTotalCurrentProduction() {
+	public static double getTotalCurrentProduction() {
 		double total_CurrentProduction=0.0;
 		for(User e: userList) {
 			total_CurrentProduction+=e.getCurrentProduction();
@@ -63,7 +73,7 @@ public class UserController
 		return total_CurrentProduction;
 	}
 
-	public ArrayList<Production> getHistoricProduction(String userId) throws IOException
+	public static ArrayList<Production> getHistoricProduction(String userId) throws IOException
 	{
 		ArrayList<Production> prodHist = new ArrayList<>();
 		BufferedReader br = new BufferedReader(new FileReader(hisProdDataPath));
@@ -81,7 +91,7 @@ public class UserController
 		return prodHist;
 	}
 	
-	public ArrayList<PowerUsage> getHistoricUsage(String userId) throws IOException
+	public static ArrayList<PowerUsage> getHistoricUsage(String userId) throws IOException
 	{
 		ArrayList<PowerUsage> usageHist = new ArrayList<>();
 		BufferedReader br = new BufferedReader(new FileReader(hisUsagDataPath));
