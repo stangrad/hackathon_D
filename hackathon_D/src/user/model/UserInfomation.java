@@ -14,7 +14,7 @@ import java.util.Scanner;
  *
  */
 public class UserInfomation {
-	ArrayList<UserList> userList = new ArrayList<>();
+	ArrayList<User> userList = new ArrayList<>();
 	Scanner kb = new Scanner(System.in);
 	String dataPath = "res\\userData.txt";
 
@@ -22,9 +22,8 @@ public class UserInfomation {
 
 		loadData(dataPath);
 		//get the data of single user
-		String id="";
+		String id="6848";
 		singleUser(id);
-
 	}
 	
 	
@@ -37,45 +36,40 @@ public class UserInfomation {
 		line = bfReader.readLine();
 		while(line != null) {
 			String field [] = line.split(",");
-			userList.add(new UserList(field[0],field[1],field[2],field[3],field[4],field[5], field[6], Double.parseDouble(field[7]), Double.parseDouble(field[8])));
+			userList.add(new User(field[0],field[1],field[2],field[3],field[4],field[5], field[6], Double.parseDouble(field[7]), Double.parseDouble(field[8])));
 			line = bfReader.readLine();
 		}
+		//printOut();
 	}
 
 	
-	private ArrayList<UserList> singleUser(String id) throws IOException{
-		ArrayList <UserList> singleUser = new ArrayList <>();
-		for(int i=0; i<=userList.size(); i++) {
-			if(id.equals(userList.get(i))){
-				singleUser.add(userList.get(i));
-				
-			}
-			
+	private ArrayList<User> singleUser(String id){
+		ArrayList <User> singleUser = new ArrayList <>();
+		for(int i=0; i<userList.size(); i++) {
+			if(userList.get(i).getId().matches(id)){
+				singleUser.add(userList.get(i));				
+			}			
 		}
-		return singleUser;
+		return singleUser;		
+	}
+	/**
+	 * Method description - ttlCurrentProduction()
+	 * Calculate total current Production from database
+	 * @return double total_CurrentProduction
+	 */
+	private double ttlCurrentProduction() {
+		double total_CurrentProduction=0.0;
+		for(User e: userList) {
+			total_CurrentProduction+=e.getCurrentProduction();
+		}
+		System.out.println(total_CurrentProduction);
+		return total_CurrentProduction;
 		
 	}
-	private void verifyUser(String id) throws IOException {
-		String line ="";
-		BufferedReader bfReader = new BufferedReader(new FileReader(dataPath));
-		// header
-		line = bfReader.readLine();
-		// data starting
-		line = bfReader.readLine();
-
-		while(line != null) {
-			String field [] = line.split(",");
-			if(field[0].equals(id)) {
-					userList.add(new UserList(field[0],field[1],field[2],field[3],field[4],field[5], field[6], Double.parseDouble(field[7]), Double.parseDouble(field[8])));
-	
-				}
-			}
-			line = bfReader.readLine();
-	}		
 
 
 	private void printOut() {
-		for (UserList e : userList) {
+		for (User e : userList) {
 			System.out.println(e);
 
 		}

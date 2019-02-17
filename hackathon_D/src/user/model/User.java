@@ -4,7 +4,7 @@
  * @author Yunting Wang
  *
  */
-public class UserList {
+public class User {
 //id,first_name,last_name,email,phoneNumber,creditcard,bankaccount,currentUsage,currentProduction
 	private String id;
 	private String first_name;
@@ -15,7 +15,7 @@ public class UserList {
 	private String bankaccount;
 	private double currentUsage;
 	private double currentProduction;
-	public UserList() {
+	public User() {
 		id="";
 		first_name="";
 		last_name="";
@@ -26,7 +26,7 @@ public class UserList {
 		currentUsage=0.0;
 		currentProduction=0.0;
 	}
-	public UserList(String id, String first_name, String last_name, String email, String phonNumber, 
+	public User(String id, String first_name, String last_name, String email, String phonNumber, 
 			String creditcard, String bankaccount, double currentUsage, double currentProduction) {
 		setId(id);
 		setFirst_name(first_name);

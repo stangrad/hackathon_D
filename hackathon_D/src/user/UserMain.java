@@ -1,8 +1,11 @@
 package user;
 
 import java.io.IOException;
+<<<<<<< HEAD
+=======
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+>>>>>>> refs/remotes/origin/master
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -12,13 +15,27 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+<<<<<<< HEAD
+import user.model.PowerUsage;
+=======
 import user.view.UserMainScreenController;
 import user.model.*;
+>>>>>>> refs/remotes/origin/master
 
 public class UserMain extends Application {
 
 	private Stage primaryStage;
 	private BorderPane rootLayout;
+<<<<<<< HEAD
+=======
+	private String dateStamp;
+	
+<<<<<<< HEAD
+	public ObservableList<PowerUsage> powerUseage = FXCollections.observableArrayList();
+//..
+=======
+	public ObservableList<PowerUsage> historicUseage = FXCollections.observableArrayList();
+>>>>>>> refs/remotes/origin/master
 	
 	public PowerProduction powerProduction;
 	public PowerUsage powerUsage;
@@ -27,6 +44,7 @@ public class UserMain extends Application {
 
 	public ObservableList<PowerUsage> historicUsage = FXCollections.observableArrayList();
 	
+>>>>>>> refs/remotes/origin/master
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;

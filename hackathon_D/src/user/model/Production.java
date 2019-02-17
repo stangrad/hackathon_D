@@ -6,13 +6,15 @@ public class Production {
 	String hour;
 	double powerAmount;
 	int userId;
+	double price;
 
-	public Production(String date, String hour, double powerAmount, int userId) {
+	public Production(String date, String hour, double powerAmount, int userId, double price) {
 		super();
 		this.date = date;
 		this.hour = hour;
 		this.powerAmount = powerAmount;
 		this.userId = userId;
+		this.price = price;
 	}
 
 	public String getDate() {
