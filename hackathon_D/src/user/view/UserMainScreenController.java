@@ -3,8 +3,12 @@ package user.view;
 import javafx.fxml.FXML;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.TitledPane;
+import user.UserMain;
 
 public class UserMainScreenController {
+
+	UserMain driver;
+
 	@FXML
 	private Accordion accorPane;
 	@FXML
@@ -38,4 +42,9 @@ public class UserMainScreenController {
         return historicUsage;
     }
     */
+	
+	public void setAppDriver(UserMain driver)
+	{
+		this.driver = driver;
+	}
 }
