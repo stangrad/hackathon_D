@@ -46,7 +46,6 @@ public class UserMainScreenController {
 
 	public void initialize() {
 		accorPane.setExpandedPane(titledPane1);
-		//
 	}
 	
 	public void setAppDriver(UserMain driver)
