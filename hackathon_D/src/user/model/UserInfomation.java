@@ -19,36 +19,43 @@ public class UserInfomation {
 	Scanner kb = new Scanner(System.in);
 	String dataPath = "res\\userData.txt";
 	public UserInfomation() throws IOException {
-		//loadData(dataPath);
-		if(loing()) {
-			//System.out.println("Login Success");
-			//System.out.println("Welcome to Initial Power.");
-		}else{
-			//System.out.println("Sorry, id or password is incorrect. Please check it.");
-			//System.out.println("If you are not our customer, welcome to join Initial Power for createing your income.");
-		}
+		loadData(dataPath);
+		//get the data of single user
+		String id="";
+		singleUser(id);
 	}
-	private boolean loing() throws IOException {
-		//get userID;
-		//System.out.println("Typing userID:");
-		String id = kb.nextLine();
-		while( id.isEmpty() || !(id.matches("[0-9]{4}"))) {
-			//System.out.println("Please typing 4 digits: ");
-			id = kb.nextLine();
+
+	
+	
+	private void loadData(String filePath) throws IOException {
+		String line ="";
+		BufferedReader bfReader = new BufferedReader(new FileReader(filePath));
+		//header
+		line = bfReader.readLine();
+		//data starting
+		line = bfReader.readLine();
+		while(line != null) {
+			String field [] = line.split(",");
+			userList.add(new UserList(field[0],field[1],field[2],field[3],field[4],field[5], field[6], Double.parseDouble(field[7]), Double.parseDouble(field[8])));
+			line = bfReader.readLine();
 		}
-		//System.out.println("Please typing pw, 6 digits:");
-		String pw = kb.nextLine();
-		while(!pw.matches("[a-zA-Z0-9]{6}")) {
-			//System.out.println("Please type 6 digits(Caption, small letter, and number is mixed.");
-		}		
-		if(verifyUser(id, pw)) {
-			return true;
-		}else {
-			return false;
-		}	
+		bfReader.close();
 	}
 	
-	private boolean verifyUser(String id, String pw) throws IOException {
+	
+	private ArrayList<UserList> singleUser(String id) throws IOException{
+		ArrayList <UserList> singleUser = new ArrayList <>();
+		for(int i=0; i<=userList.size(); i++) {
+			if(id.equals(userList.get(i))){
+				singleUser.add(userList.get(i));
+				
+			}
+			
+		}
+		return singleUser;
+		
+	}
+	private boolean verifyUser(String id) throws IOException {
 		String line ="";
 		BufferedReader bfReader = new BufferedReader(new FileReader(dataPath));
 		//header
@@ -58,10 +65,7 @@ public class UserInfomation {
 		while(line != null) {
 			String field [] = line.split(",");
 			if(field[0].equals(id)) {
-				
-				if(field[8].equals(pw)) {
-					userList.add(new UserList(field[0],field[1],field[2],field[3],field[4],field[5], field[6], field[7], field[8]));
-				}
+					userList.add(new UserList(field[0],field[1],field[2],field[3],field[4],field[5], field[6], Double.parseDouble(field[7]), Double.parseDouble(field[8])));
 			}
 			line = bfReader.readLine();
 		}
