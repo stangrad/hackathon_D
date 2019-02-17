@@ -32,7 +32,7 @@ public class UserInfomation {
 		//get userID;
 		System.out.println("Typing userID:");
 		String id = kb.nextLine();
-		while( id.isEmpty() || !id.matches("[0-9] {4}")) {
+		while( id.isEmpty() || !(id.matches("[0-9]{4}"))) {
 			System.out.println("Please typing 4 digits: ");
 			id = kb.nextLine();
 		}
@@ -40,27 +40,32 @@ public class UserInfomation {
 		String pw = kb.nextLine();
 		while(!pw.matches("[a-zA-Z0-9]{6}")) {
 			System.out.println("Please type 6 digits(Caption, small letter, and number is mixed.");
-		}
-		
+		}		
 		if(verifyUser(id, pw)) {
 			return true;
 		}else {
 			return false;
-		}
-	
+		}	
 	}
 	
 	private boolean verifyUser(String id, String pw) throws IOException {
 		String line ="";
 		BufferedReader bfReader = new BufferedReader(new FileReader(dataPath));
+		//header
+		line = bfReader.readLine();
+		//data starting
 		line = bfReader.readLine();
 		while(line != null) {
 			String field [] = line.split(",");
+//			System.out.printf("[TP_1]id=%s, pw=%s\n",id,pw);
+//			System.out.printf("[TP_2]id=%s, pw=%sn",field[0], field[8]);
 			if(field[0].equals(id)) {
+				
 				if(field[8].equals(pw)) {
 					userList.add(new UserList(field[0],field[1],field[2],field[3],field[4],field[5], field[6], field[7], field[8]));
 				}
 			}
+			line = bfReader.readLine();
 		}
 		if(!userList.isEmpty()) {
 			bfReader.close();
@@ -71,5 +76,11 @@ public class UserInfomation {
 		}
 		
 	
+	}
+	private void printOut() {
+		for(UserList e : userList) {
+			System.out.println(e);
+			
+		}
 	}
 }
