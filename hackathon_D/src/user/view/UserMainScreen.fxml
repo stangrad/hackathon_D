@@ -47,8 +47,8 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </BarChart>
-                        <Rectangle fx:id="barUsage" arcHeight="5.0" arcWidth="5.0" fill="#ff2222" layoutX="149.0" layoutY="271.0" stroke="BLACK" strokeType="INSIDE" width="58.0" AnchorPane.bottomAnchor="50.0" />
-                        <Rectangle fx:id="barProduction" arcHeight="5.0" arcWidth="5.0" fill="#00ff08" layoutX="295.0" layoutY="89.0" stroke="BLACK" strokeType="INSIDE" width="58.0" AnchorPane.bottomAnchor="50.0" />
+                        <Rectangle fx:id="barUsage" arcHeight="5.0" arcWidth="5.0" fill="#ff2222" layoutX="149.0" layoutY="271.0" stroke="BLACK" strokeType="INSIDE" width="58.0" AnchorPane.bottomAnchor="60.0" />
+                        <Rectangle fx:id="barProduction" arcHeight="5.0" arcWidth="5.0" fill="#00ff08" layoutX="295.0" layoutY="89.0" stroke="BLACK" strokeType="INSIDE" width="58.0" AnchorPane.bottomAnchor="60.0" />
                         <Label layoutX="159.0" layoutY="314.0" text="Usage" />
                         <Label layoutX="292.0" layoutY="314.0" text="Production" />
                      </children></AnchorPane>
