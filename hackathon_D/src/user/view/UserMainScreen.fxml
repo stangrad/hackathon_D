@@ -60,7 +60,7 @@
                      <children>
                         <ImageView fitHeight="110.0" fitWidth="100.0" layoutX="317.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../../Downloads/simpson.png" />
+                              <Image url="@../../../res/simpson.png" />
                            </image>
                         </ImageView>
                         <Label layoutX="349.0" layoutY="141.0" text="Dinos" />
@@ -87,7 +87,7 @@
                         </GridPane>
                         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="54.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../../Downloads/panel.png" />
+                              <Image url="@../../../res/panel.png" />
                            </image>
                         </ImageView>
                         <GridPane layoutX="206.0" layoutY="204.0">
@@ -119,7 +119,7 @@
       <Text layoutX="122.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The highest price of energy is $7.38/wh." underline="true" />
       <ImageView fitHeight="37.0" fitWidth="28.0" layoutX="93.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../Downloads/check.png" />
+            <Image url="@../../../res/check.png" />
          </image>
       </ImageView>
    </children>
